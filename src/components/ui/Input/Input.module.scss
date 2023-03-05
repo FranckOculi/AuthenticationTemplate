@@ -1,0 +1,23 @@
+.input_wrapper {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+.label {
+	min-width: 120px;
+}
+.input {
+	width: 100%;
+	border-radius: 4px;
+	border: 1px solid black;
+}
+.submit {
+	align-self: flex-end;
+	width: 80px;
+	height: 25px;
+	background-color: #1565c0;
+	border: none;
+	border-radius: 4px;
+	color: #fff;
+	font-weight: 500;
+}
