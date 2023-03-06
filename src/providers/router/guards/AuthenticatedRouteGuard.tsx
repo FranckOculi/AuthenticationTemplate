@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useAuthContext } from '@/providers/auth/AuthContext'
 
-export const AuthenticateRouteGuard: FC<React.PropsWithChildren<unknown>> = ({
+export const AuthenticatedRouteGuard: FC<React.PropsWithChildren<unknown>> = ({
 	children,
 }) => {
 	const { isAuthenticated } = useAuthContext()

@@ -20,7 +20,6 @@ export const login = async (credentials: Credentials) => {
 }
 
 export const tryToConnect = async (token: string) => {
-	console.log(baseUrl)
 	return await fetch(baseUrl + '/auth/jwtid', {
 		method: 'GET',
 		headers: {

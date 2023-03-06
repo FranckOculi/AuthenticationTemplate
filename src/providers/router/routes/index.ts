@@ -1,4 +1,4 @@
 import AuthenticatedRoutes from './AuthenticatedRoutes'
-import PublicRoutes from './PublicRoutes'
+import PublicOnlyRoutes from './PublicOnlyRoutes'
 
-export { AuthenticatedRoutes, PublicRoutes }
+export { AuthenticatedRoutes, PublicOnlyRoutes }

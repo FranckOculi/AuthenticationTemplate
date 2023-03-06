@@ -7,7 +7,7 @@ import { PublicOnlyLayout } from '@/providers/Layouts'
 
 const Auth = lazy(() => import('@/pages/Auth'))
 
-const PublicRoutes: FC<React.PropsWithChildren<unknown>> = () => {
+const PublicOnlyRoutes: FC<React.PropsWithChildren<unknown>> = () => {
 	return (
 		<PublicOnlyLayout>
 			<Suspense fallback={<Spinner />}>
@@ -20,4 +20,4 @@ const PublicRoutes: FC<React.PropsWithChildren<unknown>> = () => {
 	)
 }
 
-export default PublicRoutes
+export default PublicOnlyRoutes

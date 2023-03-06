@@ -3,11 +3,14 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Providers } from '@/providers'
 import { Layout } from '@/providers/Layouts'
 import {
-	AuthenticateRouteGuard,
+	AuthenticatedRouteGuard,
 	PublicOnlyRouteGuard,
 	RoutesGuard,
 } from '@/providers/router/guards'
-import { AuthenticatedRoutes, PublicRoutes } from '@/providers/router/routes'
+import {
+	AuthenticatedRoutes,
+	PublicOnlyRoutes,
+} from '@/providers/router/routes'
 
 import NotFound from '@/pages/NotFound'
 
@@ -23,16 +26,16 @@ function App() {
 							<Route
 								path='/*'
 								element={
-									<AuthenticateRouteGuard>
+									<AuthenticatedRouteGuard>
 										<AuthenticatedRoutes />
-									</AuthenticateRouteGuard>
+									</AuthenticatedRouteGuard>
 								}
 							/>
 							<Route
 								path='/connexion/*'
 								element={
 									<PublicOnlyRouteGuard>
-										<PublicRoutes />
+										<PublicOnlyRoutes />
 									</PublicOnlyRouteGuard>
 								}
 							/>
