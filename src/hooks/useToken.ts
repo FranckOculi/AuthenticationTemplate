@@ -8,3 +8,7 @@ export const setToken = (value: string) => {
 	const newValue = 'Bearer ' + value
 	localStorage.setItem(tokenKey, newValue)
 }
+
+export const removeTokens = () => {
+	localStorage.clear()
+}

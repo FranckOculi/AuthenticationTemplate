@@ -2,7 +2,7 @@ import { useMutation, useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 
 import { login, tryToConnect } from '@/api/auth/auth'
-import { setToken } from './useToken'
+import { removeTokens, setToken } from './useToken'
 import { useAuthContext } from '@/providers/auth/AuthContext'
 
 import {
@@ -60,7 +60,13 @@ const useAuth = () => {
 		)
 	}
 
-	return { signIn, autoConnect }
+	const logout = () => {
+		setIsAuthenticated(false)
+		removeTokens()
+		navigate('/', { replace: true })
+	}
+
+	return { signIn, autoConnect, logout }
 }
 
 export default useAuth
