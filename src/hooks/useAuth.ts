@@ -5,13 +5,13 @@ import { login, tryToConnect } from '@/api/auth/auth'
 import { setToken } from './useToken'
 import { useAuthContext } from '@/providers/auth/AuthContext'
 
-type SigninSuccess = {
-	message: string
-	data: {
-		token: string
-		user: number
-	}
-}
+import {
+	AutoConnectError,
+	AutoConnectSuccess,
+	SigninError,
+	SigninSuccess,
+} from '@/api/auth/types'
+
 const useAuth = () => {
 	const navigate = useNavigate()
 	const { setIsAuthenticated } = useAuthContext()
@@ -22,7 +22,7 @@ const useAuth = () => {
 			motDePasse: password,
 		}
 
-		return useQuery<SigninSuccess>(
+		return useQuery<unknown, SigninError, SigninSuccess, string[]>(
 			['signin', email, password],
 			() => login(credentials),
 			{
@@ -35,16 +35,17 @@ const useAuth = () => {
 						navigate('/', { replace: true })
 					}
 				},
+				onError: (err) => {},
 			}
 		)
 	}
 
-	type Mutation = {
+	type AutoConnectProps = {
 		token: string
 	}
 	const autoConnect = (onSuccessToConnect: () => void) => {
-		return useMutation(
-			({ token }: Mutation) => {
+		return useMutation<AutoConnectSuccess, AutoConnectError, AutoConnectProps>(
+			({ token }) => {
 				return tryToConnect(token)
 			},
 			{
@@ -54,6 +55,7 @@ const useAuth = () => {
 					}
 					onSuccessToConnect()
 				},
+				onError: (err) => {},
 			}
 		)
 	}
