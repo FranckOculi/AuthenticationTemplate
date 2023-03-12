@@ -25,7 +25,12 @@ const Auth = () => {
 
 	return (
 		<div className={style.main}>
-			<form className={style.form} action='login' onSubmit={handleSubmit}>
+			<form
+				className={style.form}
+				role='form'
+				action='login'
+				onSubmit={handleSubmit}
+			>
 				<span className={style.title}>CONNEXION</span>
 
 				<Input label='Email' type='email' handleChange={handleChange} />
