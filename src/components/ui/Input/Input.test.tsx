@@ -6,7 +6,8 @@ import Input from './Input'
 describe('Input', () => {
 	test('it should render successfully', () => {
 		const { baseElement } = render(<Input />)
-		expect(baseElement).toBeTruthy()
+
+		expect(baseElement).toBeInTheDocument()
 	})
 
 	describe('Props', () => {
