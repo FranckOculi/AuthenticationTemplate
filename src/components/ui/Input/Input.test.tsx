@@ -25,6 +25,13 @@ describe('Input', () => {
 
 			expect(type).toBe('hello')
 		})
+
+		test('it should render a submitButton', () => {
+			render(<Input type='submit' label='Valider' />)
+			const input = screen.getByText('Valider')
+
+			expect(input).toBeInTheDocument()
+		})
 	})
 
 	describe('Action', () => {
@@ -44,6 +51,20 @@ describe('Input', () => {
 			fireEvent.change(input, { target: { value: 'world' } })
 
 			expect(handleChange.mock.calls[0][0].target.value).toBe('world')
+		})
+
+		test('it should trigger the submit button when we click', () => {
+			const handleSubmit = vi.fn((e) => e.preventDefault())
+
+			render(
+				<form action='login' onSubmit={handleSubmit}>
+					<Input type='submit' label='Valider' />
+				</form>
+			)
+			const input = screen.getByText('Valider')
+			fireEvent.click(input)
+
+			expect(handleSubmit.mock.calls.length).toBe(1)
 		})
 	})
 })
