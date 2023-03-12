@@ -4,7 +4,7 @@ import { render } from '@testing-library/react'
 import Spinner from './Spinner'
 
 describe('Spinner', () => {
-	test('it should render successfully', async () => {
+	test('it should render successfully', () => {
 		const { baseElement } = render(<Spinner />)
 
 		expect(baseElement).toBeInTheDocument()
