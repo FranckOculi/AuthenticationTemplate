@@ -4,7 +4,7 @@ import Spinner from '../Spinner/Spinner'
 const WaitingTemplate = () => {
 	return (
 		<div>
-			<span>Veuillez patienter, nous chargons votre espace de travail</span>
+			<span>Veuillez patienter, nous chargeons votre espace de travail</span>
 			<Spinner />
 		</div>
 	)
