@@ -18,5 +18,5 @@ A frontend starter repository created in TypeScript and build with Vite.js.
 
 ---
 
-yarn install  
+yarn add     
 yarn build
