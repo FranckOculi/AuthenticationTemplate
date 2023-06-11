@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { lazy } from 'react'
 
 import { Providers } from '@/providers'
 import { Layout } from '@/providers/Layouts'
@@ -13,7 +14,6 @@ import {
 } from '@/providers/router/routes'
 
 import '@/scss/index.scss'
-import { lazy } from 'react'
 
 const NotFound = lazy(() => import('@/pages/NotFound'))
 
