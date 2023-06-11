@@ -1,7 +1,7 @@
 export type AutoConnectSuccess = {
 	message: string
 	data: {
-		userId: string
+		user: number
 	}
 }
 
@@ -12,7 +12,7 @@ export type AutoConnectError = {
 export type SigninSuccess = {
 	message: string
 	data: {
-		token: string
+		accessToken: string
 		user: number
 	}
 }

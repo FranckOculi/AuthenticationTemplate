@@ -18,8 +18,8 @@ const useAuth = () => {
 
 	const signIn = (email: string, password: string) => {
 		const credentials = {
-			mail: email,
-			motDePasse: password,
+			email,
+			password,
 		}
 
 		return useQuery<unknown, SigninError, SigninSuccess, string[]>(
@@ -29,8 +29,8 @@ const useAuth = () => {
 				enabled: false,
 				refetchOnWindowFocus: false,
 				onSuccess: async (data) => {
-					if (data.data?.token) {
-						setToken(data.data?.token)
+					if (data.data?.accessToken) {
+						setToken(data.data.accessToken)
 						setIsAuthenticated(true)
 						navigate('/', { replace: true })
 					}
@@ -50,7 +50,7 @@ const useAuth = () => {
 			},
 			{
 				onSuccess: (data) => {
-					if (data.data.userId) {
+					if (data.data.user) {
 						setIsAuthenticated(true)
 					}
 					onSuccessToConnect()
