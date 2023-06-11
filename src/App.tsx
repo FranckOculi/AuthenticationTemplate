@@ -12,10 +12,10 @@ import {
 	PublicOnlyRoutes,
 } from '@/providers/router/routes'
 
-const NotFound = lazy(() => import('@/pages/NotFound'))
-
 import '@/scss/index.scss'
 import { lazy } from 'react'
+
+const NotFound = lazy(() => import('@/pages/NotFound'))
 
 function App() {
 	return (
