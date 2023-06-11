@@ -1,8 +1,8 @@
 const baseUrl = import.meta.env.VITE_URL
 
 type Credentials = {
-	mail: string
-	motDePasse: string
+	email: string
+	password: string
 }
 
 export const login = async (credentials: Credentials) => {
@@ -12,22 +12,29 @@ export const login = async (credentials: Credentials) => {
 			'Content-Type': 'application/json',
 		},
 		body: JSON.stringify(credentials),
+		credentials: 'include',
 	})
-		.then((response) => response.json())
+		.then((response) => {
+			if (response.ok) return response.json()
+			throw new Error()
+		})
 		.catch((err) => {
 			throw new Error(err)
 		})
 }
 
 export const tryToConnect = async (token: string) => {
-	return await fetch(baseUrl + '/auth/jwtid', {
+	return await fetch(baseUrl + '/auth/refresh', {
 		method: 'GET',
 		headers: {
 			'Content-Type': 'application/json',
-			Authorization: token,
 		},
+		credentials: 'include',
 	})
-		.then((response) => response.json())
+		.then((response) => {
+			if (response.ok) return response.json()
+			throw new Error()
+		})
 		.catch((err) => {
 			throw new Error(err)
 		})
