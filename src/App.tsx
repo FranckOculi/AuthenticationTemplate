@@ -1,5 +1,5 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { lazy } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { Providers } from '@/providers'
 import { Layout } from '@/providers/Layouts'
