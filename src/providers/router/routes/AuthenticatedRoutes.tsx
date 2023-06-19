@@ -1,9 +1,10 @@
 import React, { FC, lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
-import Spinner from '@/components/ui/Spinner/Spinner'
 import NotFound from '@/pages/NotFound'
 import { AuthenticatedLayout } from '@/providers/Layouts'
+
+import { Spinner } from '@/components/ui'
 
 const Home = lazy(() => import('@/pages/Home'))
 const Profile = lazy(() => import('@/pages/Profile'))
