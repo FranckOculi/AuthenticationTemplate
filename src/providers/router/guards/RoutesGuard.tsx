@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 import useAuth from '@/hooks/useAuth'
 import { getToken } from '@/hooks/useToken'
 
-import WaitingTemplate from '@/components/ui/WaitingTemplate'
+import { WaitingTemplate } from '@/components/ui'
 
 export const RoutesGuard: FC<React.PropsWithChildren<unknown>> = () => {
 	const [isTokenVerified, toggleTokenVerified] = useState(false)
