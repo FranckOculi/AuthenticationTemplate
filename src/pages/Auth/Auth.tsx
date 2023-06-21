@@ -2,7 +2,8 @@ import { useState, SyntheticEvent } from 'react'
 
 import useAuth from '@/hooks/useAuth'
 
-import Input from '@/components/ui/Input/Input'
+import { Divider, Input } from '@/components/ui'
+import { OAuthButton } from '@/components/pages/Auth'
 
 import style from './Auth.module.scss'
 
@@ -40,6 +41,11 @@ const Auth = () => {
 					handleChange={handleChange}
 				/>
 				<Input label='Valider' type='submit' />
+
+				<Divider />
+
+				<OAuthButton name='microsoft' />
+				<OAuthButton name='google' />
 			</form>
 		</div>
 	)
