@@ -9,7 +9,11 @@ import {
 	PublicClientApplication,
 } from '@azure/msal-browser'
 
-const MicrosoftProvider = () => {
+type Props = {
+	children: React.ReactNode
+}
+
+const MicrosoftProvider = ({ children }: Props) => {
 	const clientId = import.meta.env.VITE_AZURE_CLIENT_ID
 	const tenantId = import.meta.env.VITE_AZURE_TENANT_ID
 	const redirectUri = import.meta.env.VITE_OAUTH_REDIRECT_URI
@@ -36,11 +40,7 @@ const MicrosoftProvider = () => {
 		}
 	})
 
-	return (
-		<MsalProvider instance={msalInstance}>
-			<MicrosoftWrapper />
-		</MsalProvider>
-	)
+	return <MsalProvider instance={msalInstance}>{children}</MsalProvider>
 }
 
 export default MicrosoftProvider
