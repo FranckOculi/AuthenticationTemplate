@@ -1,0 +1,31 @@
+.main {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 15px;
+}
+.button {
+	align-self: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 330px;
+	padding: 4px 10px;
+	border-radius: 5px;
+	border: 2px solid var(--blue-pale-2);
+	gap: 20px;
+	cursor: pointer;
+	& > img {
+		width: 18px;
+		height: 18px;
+	}
+}
+.button:hover {
+	background-color: var(--blue-pale-2);
+}
+.spinner_wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
