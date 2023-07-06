@@ -23,7 +23,7 @@ export const login = async (credentials: Credentials) => {
 		})
 }
 
-export const tryToConnect = async (token: string) => {
+export const refreshToken = async () => {
 	return await fetch(baseUrl + '/auth/refresh', {
 		method: 'GET',
 		headers: {
