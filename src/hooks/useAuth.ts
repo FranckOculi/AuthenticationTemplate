@@ -40,12 +40,9 @@ const useAuth = () => {
 		)
 	}
 
-	type AutoConnectProps = {
-		token: string
-	}
 	const autoConnect = (onSuccessToConnect: () => void) => {
-		return useMutation<AutoConnectSuccess, AutoConnectError, AutoConnectProps>(
-			({ token }) => {
+		return useMutation<AutoConnectSuccess, AutoConnectError>(
+			() => {
 				return refreshToken()
 			},
 			{
