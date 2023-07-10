@@ -21,7 +21,7 @@ export const RoutesGuard: FC<React.PropsWithChildren<unknown>> = () => {
 		if (!randomToken) {
 			toggleTokenVerified(true)
 		} else {
-			mutate({ token: randomToken })
+			mutate()
 		}
 	}, [randomToken])
 
