@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from 'react-query'
+import { useQuery } from 'react-query'
 import { useNavigate } from 'react-router-dom'
 
 import { login, refreshToken } from '@/api/auth/auth'
@@ -41,7 +41,8 @@ const useAuth = () => {
 	}
 
 	const autoConnect = (onSuccessToConnect: () => void) => {
-		return useMutation<AutoConnectSuccess, AutoConnectError>(
+		return useQuery<unknown, AutoConnectError, AutoConnectSuccess>(
+			['refreshToken'],
 			() => {
 				return refreshToken()
 			},
