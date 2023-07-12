@@ -11,7 +11,7 @@ export const RoutesGuard: FC<React.PropsWithChildren<unknown>> = () => {
 	const randomToken = getToken()
 
 	const { autoConnect } = useAuth()
-	const { mutate } = autoConnect(onSuccessToConnect)
+	const { refetch } = autoConnect(onSuccessToConnect)
 
 	function onSuccessToConnect() {
 		toggleTokenVerified(true)
@@ -21,7 +21,7 @@ export const RoutesGuard: FC<React.PropsWithChildren<unknown>> = () => {
 		if (!randomToken) {
 			toggleTokenVerified(true)
 		} else {
-			mutate()
+			refetch()
 		}
 	}, [randomToken])
 
