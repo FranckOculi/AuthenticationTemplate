@@ -1,5 +1,4 @@
 import React, { FC } from 'react'
-
 import style from './Input.module.scss'
 
 type Props = {
