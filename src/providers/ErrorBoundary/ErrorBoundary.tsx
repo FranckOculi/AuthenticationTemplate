@@ -8,12 +8,11 @@ type ErrorState = {
 
 class ErrorBoundary extends React.Component<React.PropsWithChildren<unknown>> {
 	state: ErrorState = {
-		error,
-		errorInfo,
+		error: null,
+		errorInfo: null,
 	}
 	constructor(props) {
 		super(props)
-		this.state = { error: null, errorInfo: null }
 	}
 
 	componentDidCatch(error: Error, errorInfo: ErrorInfo) {
