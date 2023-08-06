@@ -13,6 +13,7 @@ A frontend starter repository created in TypeScript and build with Vite.js.
 - Sass
 - Vitest
 - Dotenv
+- Docker
 
 ## Installation
 
